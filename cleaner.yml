@@ -1,0 +1,8 @@
+cleaner:
+  cron: ${CRON}
+  days: ${DAYS}
+
+camunda:
+  bpm:
+    job-execution:
+      enabled: false

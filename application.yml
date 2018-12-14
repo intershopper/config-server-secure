@@ -1,0 +1,53 @@
+management:
+  security:
+    enabled: false 
+spring:
+  rabbitmq:
+    addresses: ${RABBIT_MQ:tasks.rabbitmq}:5672
+  cloud:
+    inetutils:
+      preferred-networks:
+        - bpmw
+  datasource:
+    jdbc-url: ${DATASOURCE_URL}
+    username: proxy
+    password: ${DATASOURCE_PASSWORD}
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    test-on-borrow: true
+    validation-query: SELECT 1 FROM DUAL 
+logging:
+  level:
+    com.tsystems: INFO
+    com.tsystems.bpmw.assurance.domain.delegates: DEBUG
+    com.tsystems.bpmw.assurance.web: DEBUG
+    com.tsystems.bpmw.ausnahme.domain.delegates: DEBUG
+    com.tsystems.bpmw.email.domain.delegates: DEBUG
+    com.tsystems.bpmw.emailadapter.domain.delegates: DEBUG
+    com.tsystems.bpmw.assurance.repository.mapper: DEBUG
+  pattern:
+    console: ${CONSOLE_LOG_PATTERN:%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:%5p})[${spring.application.name},%X{X-GLOBAL-TRACE-ID},%X{X-PROCESS-NAME},%X{X-PROCESS-INSTANCE-ID},%X{X-BUSINESS-KEY},%X{X-METHOD-EXECUTION-TIME}] %clr(${PID:""}){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}} 
+
+profiler:
+    RPI:
+        enabled: false
+        interval: 5000
+    MM:
+        enabled: false
+        interval: 1000
+    ET:
+        enabled: false 
+camunda:
+  bpm:
+    history-level: full
+    job-execution:
+      deployment-aware: true
+    failed-job-retry-time-cycle: R3/PT20S
+    default-serialization-format: application/json
+    database:
+      schema-update: false
+      table-prefix: CAMUNDA.
+      type: oracle
+      jdbc-batch-processing: false 
+security:
+  secret: isAl2SvRwTS5iFiMS0HundfgoAc1AZ3qPvu8JqZHD8bVVcBdqhWj3qO33GyXuYCrz2sjkDFWNnbIlSFhDTKek7SNWivCn0u0M6cNQCRD1Zg115gCbm725ihNylEIRZcfXHDNXPqMRh1k9tba3AUnhd2P3SJns8NG0XKCXLh9eDJkb81w57CN2REjwIPtjuwoQYFcEcDaxjpzVtysXjr6GKtUsFr7hMRmx8SLdfLiqpeMJ0t6wgiFZKnU3YIQeCKf
+  timeout: 60

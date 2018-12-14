@@ -1,0 +1,35 @@
+ribbon:
+  ReadTimeout: 20000
+  ConnectTimeout: 20000
+zuul:
+  routes:
+    ldap-adapter:
+      path: /ldap-adapter/**
+      url: http://bpm-w.telekom.de:8050/api
+      stripPrefix: false
+      sensitiveHeaders:
+    blw163:
+      path: /blw163-service/**
+      serviceId: blw163-service
+  host: 
+    connect-timeout-millis: 5000
+    max-per-route-connections: 20
+    max-total-connections: 200
+    socket-timeout-millis: 60000
+  ribbon:
+    eager-load:
+      enabled: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 20000
+        timeout:
+          enabled: false
+
+feign.hystrix.enabled: false 
+            

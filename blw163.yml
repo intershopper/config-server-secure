@@ -1,0 +1,24 @@
+blw163:
+  webservices:
+    oracleTaskServiceUrl: http://${SOASUITEHOSTNAME}:8888/integration/services/TaskService/TaskServicePort
+    oracleTaskQueryServiceUrl: http://${SOASUITEHOSTNAME}:8888/integration/services/TaskQueryService/TaskQueryService
+    bpmwFairExceptionSafeUrl: http://${SOASUITEHOSTNAME}:8888/bpmw-fair-1.100/ExceptionSafeSLSB
+  externaltask:
+    timeout: 10
+spring:
+  datasource:
+    jdbc-url: jdbc:h2:file:/usr/local/tomcat/data/my-h2-database-file
+    url: jdbc:h2:file:/usr/local/tomcat/data/my-h2-database-file
+    username: sa
+    password: sa
+    driver-class-name: org.h2.Driver
+
+camunda:
+  bpm:
+    admin-user:
+      id: admin
+      password: {cipher}d2c3a4ea32dffafe97819a91caf2208f0e881f8150a445407af3478fed19e793
+    database:
+      schema-update: true
+      table-prefix: ""
+      type: h2

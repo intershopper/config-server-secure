@@ -1,0 +1,23 @@
+ausnahme:
+  mq:
+    queue-manager: ${MQ_PROVIDER_QUEUEMANAGER}
+    host: ${MQ_PROVIDER_HOSTNAME}
+    port: ${MQ_PROVIDER_PORT}
+    channel: CLIENT_BPMW
+    user-id: ${MQ_PROVIDER_USERNAME}
+    password: ${MQ_PROVIDER_PASSWORD}
+    listener-polling-interval: 5000
+    concurrency: 1
+    # Enable fetching of messages for erstelleAusnahme
+    create-msg-listener-active: false
+    # Enable fetching of messages for loescheAusnahme
+    delete-msg-listener-active: false
+
+    request-queue: AUSNAHMEMANAGEMENT0120.REQUEST
+    reply-queue: S_AUSNAHMEMANAGEMENT0120.REPLY
+    update-queue: MK_BPMW_C.REQUEST
+    request-jms-type: erstelleAusnahme
+    delete-jms-type: loescheAusnahme
+    update-jms-type: EingabeWholesaleAusnahmeListe
+    dwh-request-queue: MK_BPMW_C.REQUEST
+    dwh-request-jms-type: ArchiviereAusnahmeStatusRequest

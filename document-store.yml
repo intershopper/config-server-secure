@@ -1,0 +1,9 @@
+document-store:
+  create-directories: true
+  root-directory: documentStore
+  archive-directory: archived
+  attachment-directory: attachment
+  bpmw-meta-directory: bpmwMeta
+  case-directory: case
+  email-directory: email
+  reply-directory: reply

@@ -1,0 +1,21 @@
+assurance:
+  mq:
+    queue-manager: ${MQ_PROVIDER_QUEUEMANAGER}
+    host: ${MQ_PROVIDER_HOSTNAME}
+    port: ${MQ_PROVIDER_PORT}
+    channel: CLIENT_BPMW
+    user-id: ${MQ_PROVIDER_USERNAME}
+    password: ${MQ_PROVIDER_PASSWORD}
+    listener-polling-interval: 5000
+    concurrency: 1
+    # Enable fetching of messages for erstelleAusnahmeAssurance
+    create-msg-listener-active: true
+    # Enable fetching of messages for LoescheAusnahmeAssurance
+    delete-msg-listener-active: true
+
+    request-queue: AUSNAHMEMANAGEMENTASSURANCE0100.REQUEST
+    reply-queue: S_AUSNAHMEMANAGEMENTASSURANCE0100.REPLY
+    update-queue: MK_BPMW_C.REQUEST
+    request-jms-type: erstelleAusnahmeAssurance
+    delete-jms-type: LoescheAusnahmeAssurance
+    update-jms-type: EingabeWholesaleAusnahmeAssuranceListe

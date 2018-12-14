@@ -1,0 +1,24 @@
+email-adapter:
+  server-host: ${EMAIL_SERVER_HOSTNAME}
+  server-port: ${EMAIL_SERVER_PORT}
+  email:
+    username: ${EMAIL_ADAPTER_EMAIL_USERNAME}
+    password: ${EMAIL_ADAPTER_EMAIL_PASSWORD}
+    polling-interval: 5000
+    active: true
+    folder: INBOX
+    # Only imap or imaps is supported
+    protocol: imap
+  mq:
+    queue-manager: ${MQ_PROVIDER_QUEUEMANAGER}
+    host: ${MQ_PROVIDER_HOSTNAME}
+    port: ${MQ_PROVIDER_PORT}
+    channel: CLIENT_BPMW
+    user-id: ${MQ_PROVIDER_USERNAME}
+    password: ${MQ_PROVIDER_PASSWORD}
+    queue: INTERNAL.EMAIL_ADAPTER
+    jms-type: email
+
+logging:
+  level:
+    org.springframework.integration.mail.ImapMailReceiver: WARN

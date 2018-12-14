@@ -1,0 +1,9 @@
+ldap:
+    connection:
+        urls: ${LDAP_URL}
+        base: dc=com
+        user-dn: ${LDAP_USER}
+        password: ${LDAP_DIRECTORMANAGER_PASSWORD}
+    org-unit-root: T-Com Wholesale
+    pooling:
+        test-on-borrow: true

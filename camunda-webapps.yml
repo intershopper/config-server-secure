@@ -1,0 +1,21 @@
+spring:
+  camunda-bpm-datasource:
+    jdbc-url: ${DATASOURCE_URL}
+    username: sa
+    password: sa
+    driver-class-name: org.h2.Driver
+  liquibase:
+    enabled: false
+
+camunda:
+  bpm:
+    authorization:
+      enabled: true
+    admin-user:
+      id: admin
+      password: admin
+    database:
+      schema-update: true
+      table-prefix: ""
+      type: h2
+

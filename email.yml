@@ -1,0 +1,26 @@
+email:
+  mq:
+    queue-manager: ${MQ_PROVIDER_QUEUEMANAGER}
+    host: ${MQ_PROVIDER_HOSTNAME}
+    port: ${MQ_PROVIDER_PORT}
+    channel: CLIENT_BPMW
+    user-id: ${MQ_PROVIDER_USERNAME}
+    password: ${MQ_PROVIDER_PASSWORD}
+    
+    email-listener-polling-interval: 5000
+    email-listener-concurrency: 1
+    email-listener-active: false
+    email-adapter-queue: INTERNAL.EMAIL_ADAPTER
+    
+    dms-response-listener-polling-interval: 5000
+    dms-response-listener-concurrency: 1
+    dms-response-listener-active: false
+    dms-request-queue: IFMK_BPM_W_C.REQUEST
+    dms-response-queue: IFMK_BPM_W_C.RESPONSE_TEST
+    dms-archive-document-request-jms-type: archiveDocument
+    
+    dwh-request-queue: MK_BPMW_C.REQUEST
+    dwh-request-jms-type: ArchiviereAusnahmeStatusRequest
+
+  # Delete document from document store if true. Move to archive folder if false.
+  delete-document-from-store: false
